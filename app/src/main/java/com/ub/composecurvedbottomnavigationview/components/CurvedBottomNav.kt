@@ -14,7 +14,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -22,7 +21,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
@@ -33,6 +31,7 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.IntOffset
+import androidx.compose.ui.unit.dp
 import com.ub.composecurvedbottomnavigationview.R
 import com.ub.composecurvedbottomnavigationview.screen.CurvedModel
 import com.ub.composecurvedbottomnavigationview.screen.NavMode
@@ -92,7 +91,7 @@ fun CurvedBottomNav(
             val fabSize = with(density) { 56.sdp.toPx() }
             val cbnHeight = with(density) { 56.sdp.toPx() }
             val bottomNavOffsetY = height - cbnHeight
-            val curveBottomOffset = with(density) { curveDepth.sdp.toPx() }
+            val curveBottomOffset = with(density) { curveDepth.dp.toPx() }
             val fabTopOffset = with(density) { 8.sdp.toPx() }
 
             val fabRadius = fabSize / 2

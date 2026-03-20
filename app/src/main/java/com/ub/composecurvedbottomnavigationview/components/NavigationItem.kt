@@ -105,8 +105,8 @@ fun NavigationItem(
         Box(
             modifier = Modifier
                 .align(Alignment.BottomCenter)
-                .offset(y = (-12).sdp)
-                .size(4.sdp)
+                .offset(y = (-3).sdp)
+                .size(6.sdp)
                 .alpha(dotAlpha)
                 .clip(CircleShape)
                 .background(colorResource(id = R.color.nav_item_selected)),

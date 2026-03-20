@@ -26,7 +26,6 @@ class MainActivity : ComponentActivity() {
             val insetsController = WindowCompat.getInsetsController(window, window.decorView)
 
             insetsController.apply {
-                hide(WindowInsetsCompat.Type.statusBars())
                 hide(WindowInsetsCompat.Type.navigationBars())
                 systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
             }

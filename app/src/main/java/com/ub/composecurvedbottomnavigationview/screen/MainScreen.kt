@@ -95,15 +95,6 @@ fun MainScreen(viewModel: MainViewModel = viewModel()) {
                 }
             }
 
-            val titleText = stringResource(id = viewModel.menuItems[navState.selectedIndex].title)
-            Text(
-                text = stringResource(id = R.string.selected_mode_label, titleText, navState.mode.name),
-                fontSize = 20.ssp,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier
-                    .align(Alignment.Center)
-                    .padding(16.sdp)
-            )
         }
     }
 }
