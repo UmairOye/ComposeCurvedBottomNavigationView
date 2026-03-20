@@ -24,11 +24,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.ub.composecurvedbottomnavigationview.R
 import com.ub.composecurvedbottomnavigationview.components.CurvedBottomNav
+import com.ub.composecurvedbottomnavigationview.utils.sdp
+import com.ub.composecurvedbottomnavigationview.utils.ssp
 
 @Composable
 fun MainScreen(viewModel: MainViewModel = viewModel()) {
@@ -86,11 +86,11 @@ fun MainScreen(viewModel: MainViewModel = viewModel()) {
                 items(50) { index ->
                     Text(
                         text = stringResource(id = R.string.list_item_label, index),
-                        fontSize = 18.sp,
+                        fontSize = 18.ssp,
                         fontWeight = FontWeight.Medium,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(16.dp)
+                            .padding(16.sdp)
                     )
                 }
             }
@@ -98,11 +98,11 @@ fun MainScreen(viewModel: MainViewModel = viewModel()) {
             val titleText = stringResource(id = viewModel.menuItems[navState.selectedIndex].title)
             Text(
                 text = stringResource(id = R.string.selected_mode_label, titleText, navState.mode.name),
-                fontSize = 20.sp,
+                fontSize = 20.ssp,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier
                     .align(Alignment.Center)
-                    .padding(16.dp)
+                    .padding(16.sdp)
             )
         }
     }

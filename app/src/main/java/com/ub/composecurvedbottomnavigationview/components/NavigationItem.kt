@@ -29,10 +29,10 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.ub.composecurvedbottomnavigationview.R
 import com.ub.composecurvedbottomnavigationview.screen.CurvedModel
+import com.ub.composecurvedbottomnavigationview.utils.sdp
+import com.ub.composecurvedbottomnavigationview.utils.ssp
 
 @Composable
 fun NavigationItem(
@@ -73,23 +73,23 @@ fun NavigationItem(
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.offset(y = iconTranslateY.dp)
+            modifier = Modifier.offset(y = iconTranslateY.sdp)
         ) {
             Icon(
                 imageVector = ImageVector.vectorResource(id = item.icon),
                 contentDescription = stringResource(id = item.title),
                 modifier = Modifier
-                    .size(24.dp)
+                    .size(24.sdp)
                     .alpha(iconAlpha),
                 tint = colorResource(id = R.color.nav_item_unselected)
             )
 
             if (showLabel) {
-                Spacer(modifier = Modifier.height(4.dp))
+                Spacer(modifier = Modifier.height(4.sdp))
                 Text(
                     text = stringResource(id = item.title),
                     color = colorResource(id = R.color.nav_item_unselected),
-                    fontSize = 12.sp,
+                    fontSize = 12.ssp,
                     fontWeight = FontWeight.Medium,
                     modifier = Modifier.alpha(textAlpha)
                 )
@@ -105,8 +105,8 @@ fun NavigationItem(
         Box(
             modifier = Modifier
                 .align(Alignment.BottomCenter)
-                .offset(y = (-12).dp)
-                .size(4.dp)
+                .offset(y = (-12).sdp)
+                .size(4.sdp)
                 .alpha(dotAlpha)
                 .clip(CircleShape)
                 .background(colorResource(id = R.color.nav_item_selected)),

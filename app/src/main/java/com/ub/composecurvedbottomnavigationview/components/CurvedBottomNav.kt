@@ -33,11 +33,11 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.IntOffset
-import androidx.compose.ui.unit.dp
 import com.ub.composecurvedbottomnavigationview.R
 import com.ub.composecurvedbottomnavigationview.screen.CurvedModel
 import com.ub.composecurvedbottomnavigationview.screen.NavMode
 import com.ub.composecurvedbottomnavigationview.screen.NavState
+import com.ub.composecurvedbottomnavigationview.utils.sdp
 
 @Composable
 fun CurvedBottomNav(
@@ -48,8 +48,8 @@ fun CurvedBottomNav(
     val density = LocalDensity.current
 
     val layoutHeightDp = when (navState.mode) {
-        NavMode.MINIMAL -> 56.dp
-        else -> 84.dp
+        NavMode.MINIMAL -> 56.sdp
+        else -> 84.sdp
     }
 
     val animatedHeight by animateDpAsState(
@@ -89,11 +89,11 @@ fun CurvedBottomNav(
 
             val currentOffsetX = (animatedSelectedIndex * menuCellWidth).toInt()
 
-            val fabSize = with(density) { 56.dp.toPx() }
-            val cbnHeight = with(density) { 56.dp.toPx() }
+            val fabSize = with(density) { 56.sdp.toPx() }
+            val cbnHeight = with(density) { 56.sdp.toPx() }
             val bottomNavOffsetY = height - cbnHeight
-            val curveBottomOffset = with(density) { curveDepth.dp.toPx() }
-            val fabTopOffset = with(density) { 8.dp.toPx() }
+            val curveBottomOffset = with(density) { curveDepth.sdp.toPx() }
+            val fabTopOffset = with(density) { 8.sdp.toPx() }
 
             val fabRadius = fabSize / 2
             val fabMargin = height - fabSize - fabTopOffset - curveBottomOffset
@@ -164,7 +164,7 @@ fun CurvedBottomNav(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(56.dp)
+                .height(56.sdp)
                 .align(Alignment.BottomCenter)
         ) {
             menuItems.forEachIndexed { index, item ->
@@ -180,15 +180,15 @@ fun CurvedBottomNav(
         }
 
         val configuration = LocalConfiguration.current
-        val screenWidthPx = with(density) { configuration.screenWidthDp.dp.toPx() }
+        val screenWidthPx = with(density) { configuration.screenWidthDp.sdp.toPx() }
         val cellWidthPx = screenWidthPx / menuItems.size
 
         val activeItemCenterX = (animatedSelectedIndex * cellWidthPx) + (cellWidthPx / 2f)
 
-        val fabSizeDp = 56.dp
+        val fabSizeDp = 56.sdp
         val fabSizePx = with(density) { fabSizeDp.toPx() }
 
-        val fabTopOffsetPx = with(density) { 8.dp.toPx() }
+        val fabTopOffsetPx = with(density) { 8.sdp.toPx() }
 
         val fabCenterY = (fabSizePx / 2f) + fabTopOffsetPx
 
@@ -208,7 +208,7 @@ fun CurvedBottomNav(
             Icon(
                 imageVector = ImageVector.vectorResource(id = menuItems[navState.selectedIndex].icon),
                 contentDescription = stringResource(id = menuItems[navState.selectedIndex].title),
-                modifier = Modifier.size(24.dp),
+                modifier = Modifier.size(24.sdp),
                 tint = Color.White
             )
         }
