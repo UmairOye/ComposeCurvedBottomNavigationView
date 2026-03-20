@@ -74,12 +74,6 @@ fun CurvedBottomNav(
         label = "animatedSelectedIndex"
     )
 
-    val highlightElevation by animateDpAsState(
-        targetValue = if (navState.mode == NavMode.HIGHLIGHT) 16.dp else 4.dp,
-        animationSpec = tween(durationMillis = 300, easing = FastOutSlowInEasing),
-        label = "highlightElevation"
-    )
-
     val navBgColor = colorResource(id = R.color.nav_bg_color)
     val path = remember { Path() }
 
@@ -87,11 +81,6 @@ fun CurvedBottomNav(
         modifier = Modifier
             .fillMaxWidth()
             .height(animatedHeight)
-            .shadow(
-                elevation = highlightElevation,
-                spotColor = colorResource(id = R.color.purple_500),
-                ambientColor = colorResource(id = R.color.purple_500)
-            )
     ) {
         Canvas(modifier = Modifier.fillMaxSize()) {
             val width = size.width
@@ -172,7 +161,12 @@ fun CurvedBottomNav(
             )
         }
 
-        Row(modifier = Modifier.fillMaxSize()) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(56.dp)
+                .align(Alignment.BottomCenter)
+        ) {
             menuItems.forEachIndexed { index, item ->
                 Box(modifier = Modifier.weight(1f)) {
                     NavigationItem(
@@ -207,12 +201,6 @@ fun CurvedBottomNav(
                     )
                 }
                 .size(fabSizeDp)
-                .shadow(
-                    elevation = if (navState.mode == NavMode.HIGHLIGHT) 8.dp else 4.dp,
-                    shape = CircleShape,
-                    spotColor = colorResource(id = R.color.purple_500),
-                    ambientColor = colorResource(id = R.color.purple_500)
-                )
                 .clip(CircleShape)
                 .background(colorResource(id = R.color.fab_bg_color)),
             contentAlignment = Alignment.Center
